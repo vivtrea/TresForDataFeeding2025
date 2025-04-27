@@ -14,8 +14,14 @@ def pre_order(node, path = None):
     pre_order(node.left, path)
     return pre_order(node.right, path)
 # In-order traversal
-def in_order(node):
-    return []
+def in_order(node, path = None):
+    if path is None:
+        path = []
+    if node is None:
+        return path
+    in_order(node.left, path)
+    path.append(node.data)
+    return in_order(node.right, path)
 
 # Post-order traversal
 def post_order(node):
